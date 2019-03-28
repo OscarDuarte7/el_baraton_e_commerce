@@ -1,0 +1,84 @@
+<div class="container">
+<div class="row"> 
+<h1>{{listaProductos.nombre_categoria}}</h1>
+</div>
+<br>
+
+<div class="row">
+
+<div class="col-md-12">
+        <div class="input-group" >
+                <input type="text" class="form-control"  placeholder="Nombre Producto" ng-model="listaProductos.search.name">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>   
+        </div>
+</div>
+
+<div class="col-md-6">
+<div class="form-group">
+  <label for="sel1">Ordenar por</label>
+  <select ng-model="listaProductos.orderby" class="form-control" id="sel1">
+    <option ng-repeat="o in listaProductos.orden" ng-value="o.id">{{o.nombre}}</option>
+  </select>
+</div>
+
+</div>
+
+<div class="col-md-6 col-xs-6">
+        <div class="form-group">
+          <label for="fil1">Precio</label>
+          <div class="input-group" >
+                <span class="input-group-addon"><i class="glyphicon glyphicon-usd"></i></span> 
+                <input type="number" class="form-control"  placeholder="Desde" ng-model="listaProductos.pdesde">
+                  
+        </div>
+
+        <div class="input-group" >
+                <span class="input-group-addon"><i class="glyphicon glyphicon-usd"></i></span> 
+                <input type="number" class="form-control"  placeholder="Hasta" ng-model="listaProductos.phasta">
+                  
+        </div>
+        </div>
+        
+        </div>
+
+</div>
+<br>
+
+<div class="row">
+
+
+        <div class="panel panel-primary col-md-3 col-md-offset-1 col-xs-5 col-xs-offset-1 container" ng-repeat="p in listaProductos.productos | filter:listaProductos.search:strict | orderBy: listaProductos.orderby | filter:listaProductos.porRango('price', listaProductos.pdesde, listaProductos.phasta)" >
+                
+            <div class="panel-heading">{{p.name}}</div>
+                <div class="panel-body">
+                    <div class="col-md-4">
+                        <span class="glyphicon glyphicon-tag icon" aria-hidden="true"></span>
+                    </div>    
+                    <div class="col-md-8">
+                        <b><p>{{p.price | currency:"$":0}}</p></b>
+                    </div>
+                    <div class="col-md-12">
+                    <span ng-if="!p.available">No</span>
+                    <span>Disponible</span>
+                    </div>
+
+                    <div class="col-md-12">
+                            <span >Cantidad: </span>
+                            <span>{{p.quantity}}</span>
+                            </div>
+
+                    <div class="col-md-12">
+                            <button class="btn btn-warning" ng-disabled="!p.available">
+                                    <span class="glyphicon glyphicon-shopping-cart"></span> 
+                                    Agregar
+                            </button>
+                    </div>
+                </div>
+                
+              </div>
+
+</div>
+
+
+
+</div>

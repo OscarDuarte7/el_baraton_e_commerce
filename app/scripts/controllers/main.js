@@ -14,4 +14,11 @@ angular.module('elBaratonECommerceApp')
       'AngularJS',
       'Karma'
     ];
+
+    var self = this;
+   /* categoriesService.get().then(function(response){
+      self.menu = response.data.categories;
+      console.log(self.menu);
+    });*/
+
   });
