@@ -1,1 +1,55 @@
-<p>This is the carrito view.</p>
+<div class="container">
+
+    <div class="row">
+
+
+        <div class="panel panel-primary col-md-3 col-md-offset-1 col-xs-8 col-xs-offset-4 container" ng-repeat="p in carrito.carrito.lista" >
+                
+            <div class="panel-heading">{{p.producto.name}}</div>
+                <div class="panel-body">
+                    <div class="col-md-4">
+                        <span class="glyphicon glyphicon-tag icon" aria-hidden="true"></span>
+                    </div>    
+                    <div class="col-md-8">
+                        <b><p>{{p.producto.price | currency:"$":0}}</p></b>
+                    </div>
+
+                    <div class="col-md-12">
+                            <span >Unidades: </span>
+                    </div>
+                    <div class="col-md-12">
+                            <input class="form-control" type="number" ng-model="p.cantidad">
+                    </div>
+
+                    <div class="col-md-12">
+                                <b><p>Total: {{p.producto.price*p.cantidad | currency:"$":0}}</p></b>
+                    </div>       
+
+                    <div class="col-md-12">
+                            <button class="btn btn-danger" ng-click="carrito.eliminarProducto($index)" >
+                                    <span class="glyphicon glyphicon-remove"></span> 
+                                    
+                            </button>
+
+                            <button class="btn btn-info"  ng-click="carrito.editar(p)">
+                                <span class="glyphicon glyphicon-floppy-disk"></span> 
+                                
+                        </button>
+                    </div>
+      
+                </div>
+                
+              </div>
+              
+
+</div>
+
+<div class="row">
+    <div class="col-md-4 col-xs-offset-8">
+        <h3><b>Total: {{carrito.total | currency:"$":0 }}</b></h3>
+        <button class="btn btn-success" ng-click="carrito.pagar()">Pagar</button>
+    </div>    
+
+</div>
+
+</div>  

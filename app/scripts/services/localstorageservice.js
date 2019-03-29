@@ -20,6 +20,9 @@ angular.module('elBaratonECommerceApp')
       get: function(key, defaultValue) {
         return $window.localStorage[key] || defaultValue;
       },
+      remove: function(key){
+        $window.localStorage.removeItem(key);
+      },
       setObject: function(key, value) {
         $window.localStorage[key] = JSON.stringify(value);
       },

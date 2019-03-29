@@ -9,10 +9,17 @@
 angular.module('elBaratonECommerceApp')
   .directive('dMenuItem', function ($compile, $rootScope,$route, $location) {
     return {
-      template: '<a  ng-bind="item.name" ng-click="show()"></a>',
+      template: '<li class="dropdown-submenu"><a class="test" href ng-bind="item.name" ng-click="show($event)"><span class="caret"></span></a></li>',
       link: function(scope, element) {
+
+      /*  $('.dropdown-submenu a.test').on("click", function(e){
+          $(this).next('ul').toggle();
+          e.stopPropagation();
+          e.preventDefault();
+        });*/
+
         if (angular.isArray(scope.item.sublevels)) {
-              element.append($compile('<ul ng-if="collapsed" d-menu="item.sublevels"></ul>')(scope));
+              element.append($compile('<ul  d-menu="item.sublevels"><a></a></ul>')(scope));
               scope.show = function() {
                 scope.collapsed = !scope.collapsed;
               };

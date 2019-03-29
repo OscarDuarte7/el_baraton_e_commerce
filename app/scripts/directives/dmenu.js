@@ -12,7 +12,7 @@ angular.module('elBaratonECommerceApp')
       scope : {
         dMenu : '=dMenu'
       },
-      template: '<li ng-repeat="item in dMenu"><d-menu-item></d-menu-item></li>',
+      template: '<li  ng-repeat="item in dMenu"><a><d-menu-item></d-menu-item></a></li> ',
       link: function(scope, elem) {
       }
     };

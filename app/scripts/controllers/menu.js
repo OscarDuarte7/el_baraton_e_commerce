@@ -21,6 +21,5 @@ angular.module('elBaratonECommerceApp')
  
      categoriesService.get().then(function(response){
        self.menu = response.data.categories;
-       console.log(self.menu);
      });
   });
