@@ -17,6 +17,8 @@ Al clonar el repositorio se deben seguir los siguientes pasos:
 - Ejecutar en la carpeta del proyecto el comando `npm install`.
 - Ejecutar en la carpeta del proyecto el comando `bower install`.
 - Ejecutar en la carpeta del proyecto el comando `grunt build`, lo cual genera la carpeta dist.
-- Copiar la carpeta dist en un servidor web (Apache).
+- Copiar la carpeta dist en un servidor web ( de preferencia Apache).
+
+En caso de querer ejecutar localmente a modo de prueba se puede usar el comando `grunt serve`.
 
 
